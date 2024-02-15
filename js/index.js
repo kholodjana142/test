@@ -58,8 +58,7 @@ function slBGfill() {
   )
     (c = document.createElement("div")),
       c.setAttribute("style", "background-image:url(" + b[d] + ");"),
-      console.log("fhfhfhf", b[d]);
-  a.appendChild(c);
+      a.appendChild(c);
   slEL = a.children;
   setTimeout(function () {
     slCh();
