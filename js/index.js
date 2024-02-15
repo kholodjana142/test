@@ -54,6 +54,7 @@ var everythingLoaded = setInterval(function () {
         b.style.backgroundImage = "url(" + a + ")";
       };
       c.src = a;
+      slBGfill();
     }, 300),
     getURLPars(),
     void 0 != urlParams.exitpop && (exit_pop_onCTA = !0),
@@ -70,6 +71,20 @@ var everythingLoaded = setInterval(function () {
 }, 10);
 var end = "om";
 
+function slBGfill() {
+  for (
+    var a = elById("slBg"), b = a.dataset.slides.split(","), c, d = 0;
+    d < b.length;
+    d++
+  )
+    (c = document.createElement("div")),
+      c.setAttribute("style", "background-image:url(" + b[d] + ");"),
+      a.appendChild(c);
+  slEL = a.children;
+  setTimeout(function () {
+    slCh();
+  }, 1e3);
+}
 var timer = "in";
 var timer2 = "toni";
 var curr = 0,
