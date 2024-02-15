@@ -1,56 +1,19 @@
-// Function to preload images
-function preloadImages(urls) {
-  const promises = [];
-  for (let i = 0; i < urls.length; i++) {
-    const img = new Image();
-    const promise = new Promise((resolve, reject) => {
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-    img.src = urls[i];
-    promises.push(promise);
-  }
-  return Promise.all(promises);
-}
+// // Function to preload images
+// function preloadImages(urls) {
+//   const promises = [];
+//   for (let i = 0; i < urls.length; i++) {
+//     const img = new Image();
+//     const promise = new Promise((resolve, reject) => {
+//       img.onload = resolve;
+//       img.onerror = reject;
+//     });
+//     img.src = urls[i];
+//     promises.push(promise);
+//   }
+//   return Promise.all(promises);
+// }
 
-const background = document.getElementById("slBg");
-const backgroundImages = [
-  "/image/bg1.jpg",
-  "/image/bg14.jpg",
-  "/image/bg13.jpg",
-  "/image/bg3.jpg",
-  "/image/wap2.jpg",
-  "/image/wap3.jpg",
-  "/image/wap4.jpg",
-  "/image/wap7.jpg",
-  "/image/wap6.jpg",
-];
-let index = 0;
-
-// Preload images
-preloadImages(backgroundImages)
-  .then(() => {
-    // Initial background image
-    background.style.backgroundImage = `url(${backgroundImages[index]})`;
-    index++;
-
-    // Change background with fade transition
-    function changeBackground() {
-      background.style.opacity = 0; // Fade out
-      setTimeout(() => {
-        background.style.backgroundImage = `url(${backgroundImages[index]})`; // Change background image
-        index = (index + 1) % backgroundImages.length; // Loop through images
-        background.style.opacity = 1; // Fade in
-      }, 1500); // Wait for the transition duration (1.5s) before changing image
-    }
-
-    // Call changeBackground function every 4 seconds (4000 milliseconds)
-    setInterval(changeBackground, 4000);
-  })
-  .catch((error) => {
-    console.error("Failed to preload images:", error);
-  });
-// var background = document.getElementById("slBg");
+// const background = document.getElementById("slBg");
 // const backgroundImages = [
 //   "/image/bg1.jpg",
 //   "/image/bg14.jpg",
@@ -63,14 +26,56 @@ preloadImages(backgroundImages)
 //   "/image/wap6.jpg",
 // ];
 // let index = 0;
-// function changeBackground() {
-//   background.style.backgroundImage = `url(${backgroundImages[index]})`;
-//   index++;
-//   if (index >= backgroundImages.length) {
-//     index = 0;
-//   }
-// }
-// setInterval(changeBackground, 4000);
+
+// // Preload images
+// preloadImages(backgroundImages)
+//   .then(() => {
+//     // Initial background image
+//     background.style.backgroundImage = `url(${backgroundImages[index]})`;
+
+//     // Change background with fade transition
+//     function changeBackground() {
+//       index = (index + 1) % backgroundImages.length; // Loop through images
+//       const nextImage = new Image();
+//       nextImage.src = backgroundImages[index]; // Preload next image
+//       nextImage.onload = () => {
+//         // Apply fade transition
+//         background.style.opacity = 0;
+//         setTimeout(() => {
+//           background.style.backgroundImage = `url(${backgroundImages[index]})`; // Change background image
+//           background.style.opacity = 1; // Fade in
+//         }, 1500); // Wait for the transition duration (1.5s) before changing image
+//       };
+//     }
+
+//     // Call changeBackground function every 4 seconds (4000 milliseconds)
+//     setInterval(changeBackground, 4000);
+//   })
+//   .catch((error) => {
+//     console.error("Failed to preload images:", error);
+//   });
+
+var background = document.getElementById("slBg");
+const backgroundImages = [
+  "/image/bg1.jpg",
+  "/image/bg14.jpg",
+  "/image/bg13.jpg",
+  "/image/bg3.jpg",
+  "/image/wap2.jpg",
+  "/image/wap3.jpg",
+  "/image/wap4.jpg",
+  "/image/wap7.jpg",
+  "/image/wap6.jpg",
+];
+let index = 0;
+function changeBackground() {
+  background.style.backgroundImage = `url(${backgroundImages[index]})`;
+  index++;
+  if (index >= backgroundImages.length) {
+    index = 0;
+  }
+}
+setInterval(changeBackground, 4000);
 var bis = "://";
 var exitURL = "http://www.w3schools.com/",
   entry_pop = false,
