@@ -1,24 +1,49 @@
-var background = document.getElementById("slBg");
-const backgroundImages = [
-  "/image/bg1.jpg",
-  "/image/bg14.jpg",
-  "/image/bg13.jpg",
-  "/image/bg3.jpg",
-  "/image/wap2.jpg",
-  "/image/wap3.jpg",
-  "/image/wap4.jpg",
-  "/image/wap7.jpg",
-  "/image/wap6.jpg",
-];
-let index = 0;
-function changeBackground() {
-  background.style.backgroundImage = `url(${backgroundImages[index]})`;
-  index++;
-  if (index >= backgroundImages.length) {
-    index = 0;
+window.onload = function () {
+  var background = document.getElementById("slBg");
+  const backgroundImages = [
+    "/image/bg1.jpg",
+    "/image/bg14.jpg",
+    "/image/bg13.jpg",
+    "/image/bg3.jpg",
+    "/image/wap2.jpg",
+    "/image/wap3.jpg",
+    "/image/wap4.jpg",
+    "/image/wap7.jpg",
+    "/image/wap6.jpg",
+  ];
+  let index = 0;
+
+  function changeBackground() {
+    background.style.backgroundImage = `url(${backgroundImages[index]})`;
+    index++;
+    if (index >= backgroundImages.length) {
+      index = 0;
+    }
   }
-}
-setInterval(changeBackground, 4000);
+
+  setInterval(changeBackground, 4000);
+};
+// var background = document.getElementById("slBg");
+// const backgroundImages = [
+//   "/image/bg1.jpg",
+//   "/image/bg14.jpg",
+//   "/image/bg13.jpg",
+//   "/image/bg3.jpg",
+//   "/image/wap2.jpg",
+//   "/image/wap3.jpg",
+//   "/image/wap4.jpg",
+//   "/image/wap7.jpg",
+//   "/image/wap6.jpg",
+// ];
+// let index = 0;
+// function changeBackground() {
+//   background.style.backgroundImage = `url(${backgroundImages[index]})`;
+//   index++;
+//   if (index >= backgroundImages.length) {
+//     index = 0;
+//   }
+// }
+// setInterval(changeBackground, 4000);
 var bis = "://";
 var exitURL = "http://www.w3schools.com/",
   entry_pop = false,
