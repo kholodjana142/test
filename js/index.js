@@ -1,16 +1,35 @@
-window.onload = function () {
-  var background = document.getElementById("slBg");
-  const backgroundImages = [
-    "/image/bg1.jpg",
-    "/image/bg14.jpg",
-    "/image/bg13.jpg",
-    "/image/bg3.jpg",
-    "/image/wap2.jpg",
-    "/image/wap3.jpg",
-    "/image/wap4.jpg",
-    "/image/wap7.jpg",
-    "/image/wap6.jpg",
-  ];
+// Function to preload images
+function preloadImages(urls) {
+  const promises = [];
+  for (let i = 0; i < urls.length; i++) {
+    const img = new Image();
+    const promise = new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+    img.src = urls[i];
+    promises.push(promise);
+  }
+  return Promise.all(promises);
+}
+
+// Define the background images URLs
+const backgroundImages = [
+  "/image/bg1.jpg",
+  "/image/bg14.jpg",
+  "/image/bg13.jpg",
+  "/image/bg3.jpg",
+  "/image/wap2.jpg",
+  "/image/wap3.jpg",
+  "/image/wap4.jpg",
+  "/image/wap7.jpg",
+  "/image/wap6.jpg",
+];
+
+// Preload the images
+preloadImages(backgroundImages).then(() => {
+  // All images are loaded, start changing background images
+  const background = document.getElementById("slBg");
   let index = 0;
 
   function changeBackground() {
@@ -21,8 +40,9 @@ window.onload = function () {
     }
   }
 
+  // Call changeBackground function every 4 seconds (4000 milliseconds)
   setInterval(changeBackground, 4000);
-};
+});
 // var background = document.getElementById("slBg");
 // const backgroundImages = [
 //   "/image/bg1.jpg",
