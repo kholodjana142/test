@@ -274,14 +274,6 @@ h1 {
   font-weight: bold;
 }
 
-.slideshow {
-  /* width: 100%;
-  height: 100vh; */
-  /* background-size: cover;
-  background-position: center; */
-  background-image: url("/image/bg13.jpg");
-  /* transition: background-image 1.5s; */
-}
 #verify,
 #final {
   text-align: center;
