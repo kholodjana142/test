@@ -279,7 +279,7 @@ h1 {
   background-size: cover;
   background-position: center;
   background-image: url("/image/bg13.jpg");
-  transition: background-image 1.5s ease;
+  transition: background-image 1.5s ease-in-out;
 }
 #verify,
 #final {
